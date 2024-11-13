@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chá de Bebê - Narutinho</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Chá de Bebê do Narutinho</h1>
+    <p>Venha celebrar a chegada do nosso pequeno!</p>
+    <img src="images/imagem.jpg" alt="Imagem de celebração" style="width: 300px; margin-top: 20px;">
+</header>
+
+<nav>
+    <a href="#sobre" id="openSobreBtn">Sobre</a>
+    <a href="#presentes" id="openPresentListBtn">Presentes</a>
+    <a href="#galeria" id="openGaleriaBtn">Galeria</a>
+    <a href="#contato" id="openContatoBtn">Contato</a>
+</nav>
+
+<main>
+    <section id="rsvp">
+        <h2>Confirmação de Presença</h2>
+        <p>Por favor, confirme sua presença até [data limite].</p>
+        <form id="rsvpForm">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <label for="acompanha">Como você vem?</label>
+            <select id="acompanha" name="acompanha" required>
+                <option value="" disabled selected>Selecione uma opção</option>
+                <option value="sozinho">Sozinho</option>
+                <option value="acompanhado">Acompanhado</option>
+                <option value="familia">Com a família</option>
+            </select>
+            <input type="submit" value="Confirmar">
+        </form>
+        <div id="confirmationMessage" style="display: none; margin-top: 10px; color: green;"></div>
+    </section>
+
+    <section id="localizacao">
+        <h2>Localização</h2>
+        <p>Veja como chegar:</p>
+        <button id="loadMapBtn" style="display: none;">Carregar Mapa</button>
+        <div id="mapContainer" style="display: none;">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.161224213258!2d-122.40649648469274!3d37.78583257975843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858143a09cba3b%3A0x3c7e5eec775fd6ed!2sSeu%20Endere%C3%A7o%20Aqui!5e0!3m2!1spt-BR!2sbr!4v1604070916880!5m2!1spt-BR!2sbr" 
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Obrigado por fazer parte deste momento especial!</p>
+</footer>
+
+<!-- Modal para a Lista de Presentes -->
+<div id="presentListModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closePresentList">&times;</span>
+        <h2>Lista de Presentes</h2>
+        <div class="present-list">
+            <!-- Seção para Lenço Umedecido -->
+            <div class="present-item presente-lenco">
+                <img src="images/presente1.jpg" alt="Lenço Umedecido">
+                <p>Lenço Umedecido</p>
+            </div>
+
+            <!-- Seção para Shampoo -->
+            <div class="present-item presente-shampoo">
+                <img src="images/presente2.jpg" alt="Shampoo">
+                <p>Shampoo</p>
+            </div>
+
+            <!-- Seção para Sabonete -->
+            <div class="present-item presente-sabonete">
+                <img src="images/presente2.jpg" alt="Sabonete">
+                <p>Sabonete</p>
+            </div>
+
+            <!-- Seção para Perfume -->
+            <div class="present-item presente-perfume">
+                <img src="images/presente2.jpg" alt="Perfume">
+                <p>Perfume</p>
+            </div>
+
+            <!-- Seção para Roupas -->
+            <div class="present-item presente-roupa">
+                <img src="images/presente3.jpg" alt="Roupas">
+                <p>Roupas</p>
+            </div>
+
+            <!-- Seção para Outros Presentes -->
+            <div class="present-item presente-outro">
+                <img src="images/presente4.jpg" alt="Outros (Da Sua Preferência)">
+                <p>Outros (Da Sua Preferência)</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para a seção Sobre -->
+<div id="sobreModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeSobre">&times;</span>
+        <h2>Sobre</h2>
+        <p>Estamos muito felizes em celebrar a chegada do nosso pequeno Narutinho! Venha compartilhar este momento especial conosco!</p>
+        <p><strong>Data:</strong> [Data do Evento]</p>
+        <p><strong>Horário:</strong> [Horário do Evento]</p>
+        <p><strong>Local:</strong> [Endereço do Evento]</p>
+    </div>
+</div>
+
+<!-- Modal para a seção Galeria -->
+<div id="galeriaModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeGaleria">&times;</span>
+        <h2>Galeria</h2>
+        <div class="gallery">
+            <img src="images/imagem1.jpg" alt="Foto 1">
+            <img src="images/imagem2.jpg" alt="Foto 2">
+            <img src="images/imagem3.jpg" alt="Foto 3">
+            
+        </div>
+    </div>
+</div>
+
+<!-- Modal para a seção Contato -->
+<div id="contatoModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeContato">&times;</span>
+        <h2>Contato</h2>
+        <p>Se tiver alguma dúvida, entre em contato:</p>
+        <p>Email: <a href="mailto:aleehnathys2@gmail.com">aleehnathys2@gmail.com</a></p>
+        <p>Telefone: (79)9 9921-0136</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

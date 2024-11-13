@@ -1,0 +1,409 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0fffe;
+    background-image: url('images/carrinho.png'), url('images/ursinho.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0% center, 100% center; /* Alinhado às bordas do viewport */
+    background-size: 150px; /* Tamanho fixo para as imagens */
+    color: #333;
+    line-height: 1.6;
+}
+
+
+
+
+header {
+    background-color: rgba(116, 214, 149, 0.9);
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 5px solid #d55a2a;
+    animation: fadeIn 1s;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+nav {
+    margin: 20px 0;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #d55a2a;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+    color: #6e2a20;
+    transform: scale(1.1);
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(116, 214, 149, 0.9);
+    margin-top: 20px;
+    border-top: 5px solid #d55a2a;
+}
+
+/* Galeria Moderna */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Grid responsivo */
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%; /* As imagens se ajustam ao tamanho do container */
+    max-width: 100%; /* Garantir que não ultrapassem o tamanho do container */
+    height: auto;
+    border-radius: 12px; /* Bordas arredondadas para um visual suave */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra mais sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições para efeitos suaves */
+}
+
+/* Efeito de hover para ampliar a imagem e adicionar destaque */
+.gallery img:hover {
+    transform: scale(1.1); /* Aumenta a imagem quando o mouse passa */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
+}
+
+/* Adicionando o efeito de fundo e transição para cada item da galeria */
+.gallery .gallery-item {
+    position: relative;
+    overflow: hidden; /* Evita que as imagens ultrapassem o limite do container */
+    border-radius: 12px;
+    background-color: #fff; /* Fundo branco para destacar as imagens */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: all 0.3s ease-in-out; /* Suaviza a transição dos efeitos */
+}
+
+/* Efeito de transição suave para o item da galeria */
+.gallery .gallery-item:hover {
+    transform: scale(1.05); /* Leve aumento no tamanho ao passar o mouse */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+}
+
+/* Sobreposição de texto ou descrição (opcional) */
+.gallery-item .description {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Exibir a descrição ao passar o mouse sobre o item */
+.gallery .gallery-item:hover .description {
+    opacity: 1; /* Torna a descrição visível ao passar o mouse */
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="submit"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    border-color: #d55a2a;
+}
+
+input[type="submit"] {
+    background-color: #d55a2a;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #b3422a;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #d55a2a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #b3422a;
+    transform: scale(1.05);
+}
+
+#mapContainer {
+    margin-top: 20px;
+    display: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos principais */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0fffe;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: rgba(116, 214, 149, 0.9);
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 5px solid #d55a2a;
+    animation: fadeIn 1s;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+nav {
+    margin: 20px 0;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #d55a2a;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+    color: #6e2a20;
+    transform: scale(1.1);
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(116, 214, 149, 0.9);
+    margin-top: 20px;
+    border-top: 5px solid #d55a2a;
+}
+
+/* Modal e lista de presentes */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos da lista de presentes */
+.present-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.present-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 150px;
+    text-align: center;
+}
+
+.present-item img {
+    width: 100px; /* Ajuste de tamanho das imagens */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.present-item img:hover {
+    transform: scale(1.1);
+}
+
+/* Seções de categoria de presentes (Shampoo, Sabonete, Perfume, etc.) */
+.present-item.presente-shampoo, 
+.present-item.presente-sabonete, 
+.present-item.presente-perfume {
+    background-color: #e3f9f1;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.present-item.presente-shampoo:hover,
+.present-item.presente-sabonete:hover,
+.present-item.presente-perfume:hover {
+    background-color: #c6f1e0;
+}
+
+.present-item.presente-lenco, 
+.present-item.presente-roupa, 
+.present-item.presente-outro {
+    background-color: #f9e3e3;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.present-item.presente-lenco:hover,
+.present-item.presente-roupa:hover,
+.present-item.presente-outro:hover {
+    background-color: #f1c6c6;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
